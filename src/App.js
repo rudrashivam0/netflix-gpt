@@ -1,11 +1,11 @@
-import './App.css';
+
+import Body from './components/Body';
 import './index.css';
 
 function App() {
   return (
-    <div className="bg-red-700 text-white p-3">
-      Tailwind is working!
-    </div>
+    <Body />
+
   );
 }
 

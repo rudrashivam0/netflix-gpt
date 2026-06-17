@@ -1,6 +1,9 @@
 # Getting Started with Create React App
 - Create React App
 - Configured TailwindCSS
+- Header 
+- Login Form
+- Sign Up form 
 
 
 # Features 
