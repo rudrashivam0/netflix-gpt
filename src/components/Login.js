@@ -2,7 +2,8 @@ import React, { useRef } from 'react'
 import Header from './Header'
 import { useState } from 'react'
 import checkValidData from '../utils/Validate'
-
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../utils/firebase'
 const Login = () => {
 
     const [isSignInForm, setSignInForm] = useState(true);
@@ -39,8 +40,52 @@ const Login = () => {
         setErrorMess(message);
 
         console.log(message);
+
+        // If message is not null then return 
+        // Means mess is somthing else 
         if (message) return;
 
+
+        //!We here means mess is Null means form is valid
+        //? need to log the form
+        if (!isSignInForm) {
+            //Sign Up Form
+            createUserWithEmailAndPassword(
+                auth,
+                email.current.value,
+                password.current.value)
+
+                .then((userCredential) => {
+                    // Signed up 
+                    const user = userCredential.user;
+                    console.log(user);
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    setErrorMess(errorMessage + "-" + errorCode);
+                });
+        }
+        else {
+            //Sign In Form
+            signInWithEmailAndPassword(
+                auth,
+                email.current.value,
+                password.current.value)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    console.log(user);
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorMessage + "-" + errorCode);
+                });
+
+        }
         console.log("Form Valid");
     };
 
