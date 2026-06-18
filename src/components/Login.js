@@ -1,16 +1,50 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Header from './Header'
 import { useState } from 'react'
+import checkValidData from '../utils/Validate'
 
 const Login = () => {
 
     const [isSignInForm, setSignInForm] = useState(true);
+    const [isErrorMess, setErrorMess] = useState(null);
+
+
+    const email = useRef(null);
+    const password = useRef(null);
+    const name = useRef(null);
+
 
     //? HAndle the form as toggle 
 
     const handleTogle = () => {
         setSignInForm(!isSignInForm);
     }
+
+    const handleButtonClick = () => {
+        //? Handle the button click here and need to validate the form Data
+        // checkValidData(email, password);
+        console.log(email.current.value, password.current.value);
+
+        const message = isSignInForm
+            ? checkValidData(
+                email.current.value,
+                password.current.value
+            )
+            : checkValidData(
+                email.current.value,
+                password.current.value,
+                name.current.value
+            );
+
+        setErrorMess(message);
+
+        console.log(message);
+        if (message) return;
+
+        console.log("Form Valid");
+    };
+
+
 
 
     return (
@@ -26,30 +60,46 @@ const Login = () => {
             </div>
 
             <div className="flex items-center justify-center h-screen">
-                <form className="bg-black/80 text-white p-8 rounded-lg w-3/12">
+                <form onSubmit={(e) => e.preventDefault()} className="bg-black/80 text-white p-8 rounded-lg w-3/12">
                     <h1 className='font-bold text-white text-3xl pb-6'>
                         {isSignInForm ? "Sign In" : "Sign Up"}
                     </h1>
+
+
+                    {!isSignInForm && <input
+                        ref={name}
+                        type="text"
+                        placeholder="Full Name"
+                        className="w-full p-3 mb-7 rounded bg-gray-800/80"
+                    />}
+
                     <input
+                        ref={email}
                         type="text"
                         placeholder="Email Address"
-                        className="w-full p-3 mb-10 rounded bg-gray-800/80"
+                        className="w-full p-3 mb-7 rounded bg-gray-800/80"
                     />
+
 
                     <input
+                        ref={password}
                         type="password"
                         placeholder="Password"
-                        className="w-full p-3 mb-10 rounded bg-gray-800/80"
+                        className="w-full p-3 mb-7 rounded bg-gray-800/80"
                     />
+                    <p className="text-red-700 text-sm pb-2 font-medium">
+                        {isErrorMess}
+                    </p>
 
-                    <button className="w-full bg-red-600 p-3 rounded">
+                    <button className="w-full bg-red-600 p-3 rounded" onClick={handleButtonClick}>
                         {isSignInForm ? "Sign In" : "Sign Up"}
                     </button>
 
                     <p className="text-sm text-gray-400 mt-5">
-                        New to Netflix? <span onClick={handleTogle} className="text-white cursor-pointer">
-                            {isSignInForm ? " Sign up now" : "Sign Up"}
-                            Sign up now</span>
+                        {isSignInForm ? " New to Netflix?" : "Already registered?"}
+
+                        <span onClick={handleTogle} className="text-white cursor-pointer">
+                            {isSignInForm ? "Sign up now" : "Sign In"}</span>
                     </p>
                 </form>
             </div>
