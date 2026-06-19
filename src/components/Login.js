@@ -72,7 +72,6 @@ const Login = () => {
 
                         dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
 
-                        navigate("/Browse");
                     }).catch((error) => {
                         setErrorMess(error.message);
                     });
@@ -94,9 +93,6 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
-                    console.log(user);
-                    navigate("/Browse");
-
                     // ...
                 })
                 .catch((error) => {

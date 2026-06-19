@@ -3,11 +3,16 @@ import { useSelector } from 'react-redux';
 import { signOut } from "firebase/auth";
 import { auth } from '../utils/firebase'
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { removeUser, addUser } from '../utils/userSlice'
+import { onAuthStateChanged } from "firebase/auth";
 
 const Header = () => {
 
     const navigate = useNavigate();
     //? whem sign out happen need user to bee Empty Dispatch An action 
+    const dispatch = useDispatch();
 
     const user = useSelector((store) => store.user);
     console.log(user);
@@ -20,6 +25,24 @@ const Header = () => {
             // An error happened.
         });
     }
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                //? When the user Sign in data will come here of the user 
+
+                const { uid, email, displayName, photoURL } = user;
+                dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
+                navigate("/Browse");
+
+
+            } else {
+                //? When the user Sign out data will come here of the user 
+                dispatch(removeUser());
+                navigate("/");
+            }
+        });
+    }, []);
 
     return (
         <div className='absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between items-center'>
