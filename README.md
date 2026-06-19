@@ -12,7 +12,10 @@
 - Create Sign Up Account 
 - Implement Sign In user API 
 - CreateRedux Store with userSlice 
-- 
+- Sign Out 
+- UpdateProfile Frome Fire base 
+- Fix Redux Bug 
+- Fetch From TMDB
 
 # Features 
 - Login/ Sign up 

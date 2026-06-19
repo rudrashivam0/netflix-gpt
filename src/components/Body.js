@@ -31,8 +31,8 @@ const Body = () => {
             if (user) {
                 //? When the user Sign in data will come here of the user 
 
-                const { uid, email, displayName } = user ;
-                dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+                const { uid, email, displayName, photoURL } = user;
+                dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
 
 
             } else {

@@ -2,15 +2,19 @@ import React, { useRef } from 'react'
 import Header from './Header'
 import { useState } from 'react'
 import checkValidData from '../utils/Validate'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addUser } from '../utils/userSlice'
 
 
 const Login = () => {
 
     const [isSignInForm, setSignInForm] = useState(true);
     const [isErrorMess, setErrorMess] = useState(null);
+
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
     const email = useRef(null);
@@ -57,12 +61,22 @@ const Login = () => {
                 auth,
                 email.current.value,
                 password.current.value)
-
                 .then((userCredential) => {
                     // Signed up 
                     const user = userCredential.user;
+                    updateProfile(user, {
+                        displayName: name.current.value, photoURL: "https://assets.leetcode.com/users/rudrashivam0p/avatar_1750998380.png"
+                    }).then(() => {
+                        //! need to diapatch the user action bcz need to store the user data This is A bug we fix it 
+                        const { uid, email, displayName, photoURL } = auth.currentUser;
+
+                        dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
+
+                        navigate("/Browse");
+                    }).catch((error) => {
+                        setErrorMess(error.message);
+                    });
                     console.log(user);
-                    navigate("/Browse");
                     // ...
                 })
                 .catch((error) => {
