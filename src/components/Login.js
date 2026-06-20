@@ -4,9 +4,10 @@ import { useState } from 'react'
 import checkValidData from '../utils/Validate'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase'
-import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../utils/userSlice'
+import { USER_AVATAR, BG_IMG } from '../utils/constant'
+
 
 
 const Login = () => {
@@ -16,7 +17,6 @@ const Login = () => {
 
     const dispatch = useDispatch();
 
-    const navigate = useNavigate();
     const email = useRef(null);
     const password = useRef(null);
     const name = useRef(null);
@@ -65,11 +65,12 @@ const Login = () => {
                     // Signed up 
                     const user = userCredential.user;
                     updateProfile(user, {
-                        displayName: name.current.value, photoURL: "https://assets.leetcode.com/users/rudrashivam0p/avatar_1750998380.png"
+                        displayName: name.current.value,
+                        photoURL: USER_AVATAR
                     }).then(() => {
                         //! need to diapatch the user action bcz need to store the user data This is A bug we fix it 
                         const { uid, email, displayName, photoURL } = auth.currentUser;
-
+                        //? dispatch the user to the Redux store 
                         dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
 
                     }).catch((error) => {
@@ -114,7 +115,7 @@ const Login = () => {
 
             <div className="absolute inset-0 -z-10">
                 <img
-                    src="https://assets.nflxext.com/ffe/siteui/vlv3/a565a928-abda-47bd-860a-55be00b7fefc/web/US-en-20260615-TRIFECTA-perspective_22f98b6d-12c0-4b1d-b261-54883e4c4b11_large.jpg"
+                    src={BG_IMG}
                     alt="bg-img"
                     className="w-full h-full object-cover"
                 />
