@@ -21,7 +21,8 @@ const Body = () => {
 
     return (
         <div className=''>
-
+            {/* 
+            the router provider or useNavigate can only use in the child component of the body whic is the appRouter component  */}
             <RouterProvider router={appRouter} />
 
         </div>

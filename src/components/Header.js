@@ -16,12 +16,11 @@ const Header = () => {
     const dispatch = useDispatch();
 
     const user = useSelector((store) => store.user);
-    console.log(user);
-    console.log(user?.photoURL);
+    // console.log(user);
+    // console.log(user?.photoURL);
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
-            navigate("/")
         }).catch((error) => {
             // An error happened.
         });

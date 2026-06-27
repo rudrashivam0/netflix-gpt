@@ -14,8 +14,11 @@
 - CreateRedux Store with userSlice 
 - Sign Out 
 - UpdateProfile Frome Fire base 
-- Fix Redux Bug 
-- Fetch From TMDB
+- Fix Redux Bug : DisplayName And ProfileUrl update 
+- Bug Fix : Routing Problem and redirect to Pages 
+- unsubscribe to onAuthChange when the Componenet DidUnmount
+- Constant File for hard Coded values 
+
 
 # Features 
 - Login/ Sign up 
