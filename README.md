@@ -18,6 +18,8 @@
 - Bug Fix : Routing Problem and redirect to Pages 
 - unsubscribe to onAuthChange when the Componenet DidUnmount
 - Constant File for hard Coded values 
+- get the Key from TMDB and u need to use VPN 
+- And get the data from the API  
 
 
 # Features 

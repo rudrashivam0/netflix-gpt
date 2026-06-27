@@ -7,6 +7,7 @@ const Browse = () => {
 
   //? Call the useNowPlayingMovies Hook Custom Hook
   useNowPlayingMovies();
+  // console.log(useNowPlayingMovies());
 
   return (
     <div className=''>
