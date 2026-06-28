@@ -5,6 +5,8 @@
 
 # Firebase config
 /src/utils/firebase.js
+/src/utils/constant.js
+
 
 # testing
 /coverage
