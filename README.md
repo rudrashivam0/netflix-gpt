@@ -20,6 +20,14 @@
 - Constant File for hard Coded values 
 - get the Key from TMDB and u need to use VPN 
 - And get the data from the API  
+- Custom hook for the Playing Movies
+- Create A movies Slice 
+- Update store with the movies Data
+- Main and Secondary Cont 
+- fetch data for trailer Video 
+- Update Store with Trailer 
+- Embaded YT video And Autoplay mute 
+- Going To Build secondry Comp 
 
 
 # Features 

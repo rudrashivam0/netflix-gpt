@@ -1,16 +1,16 @@
 import React from 'react'
 
-const VideoTitle = ({title, overview }) => {
+const VideoTitle = ({ title, overview }) => {
     return (
-        <div className='p-20 absolute bg-gradient-to-r from-black'>
+        <div className='px-10 absolute bg-gradient-to-r from-black w-screen aspect-video pt-[27%]'>
             <h1 className='text-3xl font-bold font-mono text-white'>{title}</h1>
             <p className='py-4 text-lg w-[50%] text-white'>{overview}</p>
 
             <div>
-                <button className='bg-white text-black   p-2 w-28 text-lg  rounded-md bg-opacity-50'>
-                   ▶ play
+                <button className='bg-white text-black   p-2 w-28 text-lg  rounded-md hover:bg-opacity-80 '>
+                    ▶ play
                 </button>
-                <button className='bg-gray-600 text-black m-4 p-2 w-28 text-lg  rounded-md bg-opacity-50'>
+                <button className='bg-gray-500 text-black m-4 p-2 w-28 text-lg  rounded-md hover:bg-opacity-80'>
                     More Info
                 </button>
             </div>
