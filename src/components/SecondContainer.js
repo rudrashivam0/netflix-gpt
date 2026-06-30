@@ -11,14 +11,14 @@ const SecondContainer = () => {
                 <MoviesList title={"Now Playing"}
                     movies={movies.nowPlayingMovies} />
 
-                <MoviesList title={"Trending"}
-                    movies={movies.nowPlayingMovies} />
+                <MoviesList title={"Top Rated"}
+                    movies={movies.TopRated} />
 
                 <MoviesList title={"Popular"}
-                    movies={movies.nowPlayingMovies} />
+                    movies={movies.PopularMovie} />
 
                 <MoviesList title={"Upcoming Movies"}
-                    movies={movies.nowPlayingMovies} />
+                    movies={movies.UpcomingMovies} />
 
                 <MoviesList title={"horror"}
                     movies={movies.nowPlayingMovies} />

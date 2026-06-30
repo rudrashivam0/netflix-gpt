@@ -7,7 +7,7 @@ import { addTrailervideo } from '../utils/moviesSlice';
 
 const useMoviestrailer = (movies_id) => {
     const dispatch = useDispatch();
-    // console.log(movies_id);
+    // console.log(movies_id) ;
 
     const getMoviesData = async () => {
 

@@ -11,7 +11,8 @@ const VideoBg = ({ movies_id }) => {
 
     //! this is my custom hook which gives the trailer 
 
-    useMoviestrailer(movies_id);
+    useMoviestrailer(movies_id); 
+     
     if (!trailerVideo) return null;
     return (
         <div className="w-screen">
