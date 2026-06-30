@@ -10,8 +10,9 @@ const VideoBg = ({ movies_id }) => {
     // to do all i need movies Id 
 
     //! this is my custom hook which gives the trailer 
-    useMoviestrailer(movies_id);
 
+    useMoviestrailer(movies_id);
+    if (!trailerVideo) return null;
     return (
         <div className="w-screen">
             <iframe
@@ -22,7 +23,7 @@ const VideoBg = ({ movies_id }) => {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
             ></iframe>
-        </div> 
+        </div>
     )
 }
 

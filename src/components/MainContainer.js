@@ -10,9 +10,10 @@ const MainContainer = () => {
     if (movies === null) return;
 
     const mainMovie = movies[4];
-    console.log(mainMovie);
+    // console.log(mainMovie);
 
-    const { original_title, overview,id } = mainMovie;
+    if (mainMovie === undefined) return;
+    const { original_title, overview, id } = mainMovie;
 
 
 
@@ -20,7 +21,7 @@ const MainContainer = () => {
         <div>
             <VideoTitle title={original_title} overview={overview} />
 
-            <VideoBg movies_id={id}/>
+            <VideoBg movies_id={id} />
 
             {/* 
             need to show the VideoIn Bg 
