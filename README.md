@@ -28,7 +28,16 @@
 - Update Store with Trailer 
 - Embaded YT video And Autoplay mute 
 - Going To Build secondry Comp 
-
+- build MoviesList 
+- Build MoviesCards 
+- TMDB CDN 
+- Second Cont With all Movies List
+- usePopoular Usetop useUpcoming
+- Update Every State With Redux Store 
+- GPT search Feature with Header 
+- Everything Powerd By redux No more useState ...*
+- Build search App Based on language 
+- Use Redux store to show language details
 
 # Features 
 - Login/ Sign up 

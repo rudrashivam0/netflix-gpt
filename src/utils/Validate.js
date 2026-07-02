@@ -2,7 +2,7 @@ const checkValidData = (email, password, name) => {
 
     //!In JavaScript, if you call a function with fewer arguments than parameters, the missing parameters become undefined.
 
-    
+
     const isEmailValid =
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
 
