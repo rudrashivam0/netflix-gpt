@@ -36,8 +36,9 @@
 - Update Every State With Redux Store 
 - GPT search Feature with Header 
 - Everything Powerd By redux No more useState ...*
-- Build search App Based on language 
+- (Hard to Build But Get it )Build search App Based on language 
 - Use Redux store to show language details
+- Integrating OPEN API
 
 # Features 
 - Login/ Sign up 
